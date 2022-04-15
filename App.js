@@ -7,40 +7,55 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react
 export default function App() {
  // const [pdf, setPdf] = ("");
   const DATA = [
-     {id:'1', name:"pdf1"},
-     {id:'2', name:"pdf2"},
-     {id:'3', name:"pdf3"},
-     {id:'4', name:"pdf4"},
-     {id:'5', name:"pdf5"},
-     {id:'6', name:"pdf6"},
-     {id:'7', name:"pdf7"},
+     {id:'1', name:"Ethical Hacking"},
+     {id:'2', name:"Java Script"},
+     {id:'3', name:"Python"},
+     {id:'4', name:"C Programming"},
+     {id:'5', name:"C++ Programming"},
+     {id:'6', name:"HTML"},
+     {id:'7', name:"PHP"},
 
 
   ]
+  const renderItem = ({item})=>{
+  return(
+    <View style={styles.pdfList}>  
+    <Text style={styles.pdfText}>{item.name}</Text> 
+    </View>
+  )}
   return (
-    <View >
-    <View style={styles.container}>
+    <View style={styles.container}> 
+    <View style={styles.container2}>
        <Image
+       
         style={styles.logo}
         source={require('./assets/image/logo.jpg')}
       />
       <Text style={styles.headerText}>PDF Viewer</Text>
     
     </View>
-    <FlatList style={styles.pdfList}
-    data= {DATA}
-    keyExtractor={ (item) => {item.key}}
-    renderItem={({item})=> <Text style={styles.pdfText}>{item.name}</Text> }
-    />
-    </View>
-  );
-}
+   
+    
+      <FlatList
+      data= {DATA}
+      keyExtractor={ (item) => {item.id}}
+      renderItem={renderItem}
+      //contentContainerStyle={{flex:1,backgroundColor:"red"}}
+      />
 
+    </View>
+
+  );//
+}
 const styles = StyleSheet.create({
   container:{
     flex:1,
+    backgroundColor:"#f5e7d0",
+  },
+  container2:{
     flexDirection:"row",
     backgroundColor:"#f5e7d0",
+    marginTop:10
   
   },
   logo:{
@@ -63,18 +78,32 @@ const styles = StyleSheet.create({
      
    },
   
+   pdfBox:{
+     flex:1,
+     marginTop:20,
+    // marginLeft:200,
+    borderWidth:1,
+    justifyContent:"center",
+    alignItems:"center",
+  //  backgroundColor:"#5abfed"
+   },
    pdfList:{
-     marginTop:50,
-     marginLeft:200,
-    // justifyContent:"center",
-   // alignItems:"center"
+    borderColor:"blue",
+    backgroundColor:"#5abfed",
+    borderColor:"black",
+    marginVertical:2,
+    flex:1,
+     
    },
    pdfText:{
-     marginTop:20,
+     marginTop:10,
+     marginBottom:10,
      fontSize:20,
      fontWeight:"bold",
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    marginLeft:4,
+    paddingTop:4
      
    }
 })
