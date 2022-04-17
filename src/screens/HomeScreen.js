@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity,TextInput, Image} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 const HomeScreen=()=> {
@@ -20,8 +20,18 @@ const HomeScreen=()=> {
      {id:'10', name:"Web Development"},
 
   ]
-
-  const onChangeSearch = (item)=> setSearch(item);
+  const [filteredData,setFilteredData] = useState(DATA)
+  const handleFilter = (txt)=>{
+    setSearch(txt)
+    //if search is empty set the orgignal data into flatlist
+    if(txt=="")
+      setFilteredData(DATA)
+    else{
+      //if search contains somekeyworkd we need to sort the data 
+      const newData = DATA.filter(item=>item.name.toLowerCase().startsWith(txt))
+      setFilteredData(newData)
+    }
+  }
   const renderItem = ({item})=>{
   return(
    // <View style={styles.pdfBox}>  
@@ -42,14 +52,27 @@ const HomeScreen=()=> {
       <Text style={styles.headerText}>PDF Viewer</Text>
     
     </View>
-    <Searchbar
+    {/* <Searchbar
       placeholder="Search"
       onChangeText={onChangeSearch}
       value={search}
      />
- 
+  */}
+  
+ <View style={{padding: 10}}>
+      <TextInput
+        data= {filteredData}
+        style={{height: 50}}
+        placeholder="Search Your Course Here..!"
+        onChangeText={text=>handleFilter(text)}
+        value={search}
+      />
+      
+    </View>
+
+
       <FlatList style={styles.pdfBox}
-      data= {DATA}
+      data= {filteredData}
       keyExtractor={ (item) => {item.id}}
       renderItem={renderItem}
       //contentContainerStyle={{flex:1,backgroundColor:"red"}}
