@@ -1,11 +1,25 @@
 
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
+import CourseList from './src/screens/CourseList';
+import CourseDetails from './src/screens/courseDetails';
+import Contact from './src/screens/Contact';
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
 return(
-<HomeScreen/>
-
+  <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
+        <Stack.Screen name="Course-details" component={CourseDetails} />
+        <Stack.Screen name="Course-List" component={CourseList} />
+        <Stack.Screen name="Contact" component={Contact} />
+      </Stack.Navigator>
+</NavigationContainer>
 )
 
 
