@@ -8,8 +8,8 @@ const homeStyles = StyleSheet.create({
       padding:"1%"
     },
     uploadBox:{
-     // flex:0.6,
-
+     flex:0.5,
+      paddingBottom:"30%",
       //marginTop:80,
      // backgroundColor: '#fff',
       alignItems:"center",
@@ -17,19 +17,19 @@ const homeStyles = StyleSheet.create({
   
     },
     uploadHeader:{
-      // marginTop:"40%",
+      marginTop:"50%",
       backgroundColor: "black",
       alignItems:"center",
       justifyContent:"center",
       width:"60%",
       aspectRatio:1,
       borderRadius:"100%",
-      borderWidth:3,
+     // borderWidth:3,
       borderColor:"white",
 
     },
     logo:{
-      width:"68%",
+      width:"70%",
       aspectRatio:1,
       //marginLeft:13,
       resizeMode:"stretch",
@@ -40,9 +40,9 @@ const homeStyles = StyleSheet.create({
   
     },
     button: {
-      width:"90%",
+      width:"93%",
       aspectRatio:5,
-      borderRadius:40,
+      borderRadius:8,
       //backgroundColor: "#6413b0",
       //backgroundColor: "#2157b5",
      //backgroundColor: "black",
@@ -51,9 +51,10 @@ const homeStyles = StyleSheet.create({
       justifyContent: 'center',
       borderColor:"black",
       // borderRadius:10
-      marginTop:50,
+     marginTop:"55%",
       borderWidth:2,
-      borderColor:"white"
+      borderColor:"white",
+    
     },
     // button2: {
     //   width:"70%",
@@ -77,13 +78,13 @@ const homeStyles = StyleSheet.create({
 // },
     btnText: {
       fontWeight:"bold",
-      fontSize:27,
+      fontSize:25,
       color:"white",
       alignItems: 'center',
       justifyContent: 'center',
     },
     footerContainer:{
-      flex:0.5,
+      flex:0.4,
       position:"relative",
    // marginTop:"90%",
       //marginLeft:6,

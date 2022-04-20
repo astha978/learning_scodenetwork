@@ -5,8 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import homeStyles from '../Styles/homeStyles';
 
-
-
 const Stack = createNativeStackNavigator();
 
 const HomeScreen=({navigation})=>{
@@ -89,7 +87,7 @@ const HomeScreen=({navigation})=>{
        <TouchableOpacity style={homeStyles.button}
         onPress={()=>navigation.navigate('Course-List') }      
        >           
-       <Text style={homeStyles.btnText}>---Choose Course---</Text>
+       <Text style={homeStyles.btnText}>Sign IN With Google</Text>
        </TouchableOpacity>
     </View>
 
